@@ -1,8 +1,13 @@
-from core import gamewrapper
+import pygame
+from engine.engine import Engine
+from engine.types.engine_config import EngineConfig
 
 
 def main() -> None:
-    gamewrapper.run_program()
+    pygame.init()
+    pygame.font.init()
+    engine: Engine = Engine(config= EngineConfig(title='Pygame Pong', height=720, width=1280))
+    engine.run()
 
 
 if __name__ == "__main__":
