@@ -1,6 +1,6 @@
 import pygame
 from shared.configs.game_config import GameConfig
-from pieces import pieces
+from shared import entity
 from shared.constants import colors
 from shared.types.size import Size
 from world import world
@@ -23,16 +23,16 @@ class Engine:
 
     def _keypressed(self, key: int, is_keydown_hold: bool) -> None:
         if is_keydown_hold:
-            pieces.player_1.update(key = key)
-            pieces.player_2.update(key = key)
+            entity.player_1.update(key = key)
+            entity.player_2.update(key = key)
             
 
     def _draw(self) -> None:
-        pieces.court.render()
-        pieces.player_1.render()
-        pieces.player_2.render()
-        pieces.ball.render()
-        pieces.score_board.render()
+        entity.court.render()
+        entity.player_1.render()
+        entity.player_2.render()
+        entity.ball.render()
+        entity.score_board.render()
 
     def _exit(self) -> None:
         pygame.quit()

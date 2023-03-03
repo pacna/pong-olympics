@@ -1,6 +1,6 @@
 from components.ball import Ball
 from components.court import Court
-from players.iplayer import IPlayer
+from shared.interfaces.iplayer import IPlayer
 from components.score_board import ScoreBoard
 
 
