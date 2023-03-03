@@ -1,13 +1,12 @@
 import pygame
+from shared.configs.game_config import GameConfig
 from pieces import pieces
 from shared.constants import colors
-from engine.types.engine_config import EngineConfig
 from shared.types.size import Size
 from world import world
 
 class Engine:
-
-    def __init__(self, config: EngineConfig) -> None:
+    def __init__(self, config: GameConfig) -> None:
         self.config = config
         self.surface = pygame.display.set_mode(size = (self.config.width, self.config.height))
 

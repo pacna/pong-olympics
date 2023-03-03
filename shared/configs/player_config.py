@@ -3,8 +3,7 @@ from dataclasses import dataclass
 from pygame import surface
 import pygame
 
-from players.types.player_type import PlayerType
-from shared.types.position import Position
+from shared.constants.player_type import PlayerType
 
 
 @dataclass

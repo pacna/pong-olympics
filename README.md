@@ -7,7 +7,7 @@
 ## How to install dependencies
 
 ```bash
-$ pip install -r requirements.txt
+$ make install
 ```
 
 ## Troubleshoot
@@ -27,5 +27,5 @@ $ apt-get install python3-tk
 ## How to run game
 
 ```bash
-$ python main.py
+$ make run
 ```

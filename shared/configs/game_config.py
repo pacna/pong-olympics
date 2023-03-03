@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 
 @dataclass
-class EngineConfig:
+class GameConfig:
     title: str
     height: int
     width: int

@@ -1,12 +1,12 @@
 import pygame
 from engine.engine import Engine
-from engine.types.engine_config import EngineConfig
+from shared.configs.game_config import GameConfig
 
 
 def main() -> None:
     pygame.init()
     pygame.font.init()
-    engine: Engine = Engine(config= EngineConfig(title='Pygame Pong', height=720, width=1280))
+    engine: Engine = Engine(config= GameConfig(title='Pygame Pong', height=720, width=1280))
     engine.run()
 
 

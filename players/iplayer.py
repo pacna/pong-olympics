@@ -1,6 +1,6 @@
 from typing import Protocol
 
-from players.types.player_type import PlayerType
+from shared.constants.player_type import PlayerType
 
 
 class IPlayer(Protocol):

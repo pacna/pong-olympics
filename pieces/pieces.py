@@ -1,7 +1,7 @@
-from ball.ball import Ball
-from court.court import Court
+from components.ball import Ball
+from components.court import Court
 from players.iplayer import IPlayer
-from score_board.score_board import ScoreBoard
+from components.score_board import ScoreBoard
 
 
 player_1: IPlayer

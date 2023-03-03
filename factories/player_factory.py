@@ -2,8 +2,8 @@ from players.computer import Computer
 from players.iplayer import IPlayer
 from players.opponent import Opponent
 from players.self import Self
-from players.types.player_config import PlayerConfig
-from players.types.player_type import PlayerType
+from shared.configs.player_config import PlayerConfig
+from shared.constants.player_type import PlayerType
 
 
 def create_player_factory(config: PlayerConfig) -> IPlayer:

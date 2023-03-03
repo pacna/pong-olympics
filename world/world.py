@@ -1,10 +1,10 @@
 from pygame import Rect, surface
-from ball.ball import Ball
-from court.court import Court
-from players.player_factory import create_player_factory
-from players.types.player_config import PlayerConfig
-from players.types.player_type import PlayerType
-from score_board.score_board import ScoreBoard
+from components.ball import Ball
+from components.court import Court
+from factories.player_factory import create_player_factory
+from shared.configs.player_config import PlayerConfig
+from shared.constants.player_type import PlayerType
+from components.score_board import ScoreBoard
 from shared.types.position import Position
 from shared.types.size import Size
 from shared.constants import sizes, colors
