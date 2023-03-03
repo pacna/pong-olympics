@@ -1,5 +1,4 @@
 import pygame
-from components.score_board import draw_score_board
 from pieces import pieces
 from shared.constants import colors
 from engine.types.engine_config import EngineConfig
@@ -14,13 +13,10 @@ class Engine:
 
     def run(self) -> None:
         self._load()
-        draw_score_board(game_surface = self.surface)
-
         self._run_game()
 
     def _load(self) -> None:
         pygame.display.set_caption(self.config.title)
-        self.surface.fill(color=colors.KORMA)
         world.load_world(surface= self.surface, screen_size= Size(width= self.config.width, height= self.config.height))
 
     def _update(self) -> None:
@@ -36,12 +32,15 @@ class Engine:
         pieces.court.render()
         pieces.player_1.render()
         pieces.player_2.render()
+        pieces.ball.render()
+        pieces.score_board.render()
 
     def _exit(self) -> None:
         pygame.quit()
         quit() # to properly quit out of the program
 
     def _run_game(self) -> None:
+        clock: pygame.time.Clock = pygame.time.Clock()
         is_key_hold: bool = False
         current_key: int = -1
         while True:
@@ -59,8 +58,10 @@ class Engine:
                         is_key_hold = False
                         current_key = event.key
                         break
+            self.surface.fill(color=colors.KORMA)
             self._keypressed(key= current_key, is_keydown_hold= is_key_hold)
             self._draw()
             pygame.display.update()
+            clock.tick(60) # 60 FPS
 
 

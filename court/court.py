@@ -1,13 +1,12 @@
-from pygame import Rect, surface, display
+from pygame import rect, surface
 from dataclasses import dataclass
-from components.paddle import draw_court
+from draw.draw import draw_court
 
 
 @dataclass
 class Court:
     surface: surface.Surface
-    layout: Rect
+    layout: rect.Rect
 
     def render(self) -> None:
         draw_court(surface= self.surface, layout = self.layout)
-        display.flip()

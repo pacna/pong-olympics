@@ -7,7 +7,7 @@ from players.types.player_type import PlayerType
 
 
 def create_player_factory(config: PlayerConfig) -> IPlayer:
-    match type:
+    match config.type:
         case PlayerType.SELF:
             return Self(surface= config.surface, color= config.color, layout= config.layout)
         case PlayerType.OPPONENT:
