@@ -1,8 +1,12 @@
 from pygame import surface, display, draw, Rect
-from shared.types import size, position
+from shared.constants import colors, sizes
 
 
-def draw_paddle(surface: surface.Surface, color: tuple, position: position.Position, size: size.Size) -> None:
-    paddle_size: Rect = Rect(position.x, position.y, size.width, size.height)
-    draw.rect(surface = surface, color= color, rect= paddle_size)
+def draw_paddle(surface: surface.Surface, color: tuple, layout: Rect) -> None:
+    draw.rect(surface = surface, color= color, rect= layout)
+    display.flip()
+
+
+def draw_court(surface: surface.Surface, layout: Rect) -> None:
+    draw.rect(surface = surface, color= colors.WHITE, rect= layout, width = sizes.GAME_COURT_BORDER_WIDTH)
     display.flip()

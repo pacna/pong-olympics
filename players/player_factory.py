@@ -1,23 +1,19 @@
-from players.types.iplayer import IPlayer
+from players.computer import Computer
+from players.iplayer import IPlayer
+from players.opponent import Opponent
+from players.self import Self
+from players.types.player_config import PlayerConfig
+from players.types.player_type import PlayerType
 
 
-class PlayerFactory:
-    def __init__(self, players: list[IPlayer]) -> None:
-        self.players = self.__map_to_players(players)
-        pass
-
-    def render(self) -> None:
-        for player in self.players.values():
-            player.render()
-
-    def get_player(self, id: str) -> IPlayer:
-        return self.players[id]
-
-    def __map_to_players(self, players: list[IPlayer]) -> dict[str, IPlayer]:
-        new_players = dict()
-        for player in players:
-            print(player.id)
-            new_players[player.id] = player
-
-        return new_players
+def create_player_factory(config: PlayerConfig) -> IPlayer:
+    match type:
+        case PlayerType.SELF:
+            return Self(surface= config.surface, color= config.color, layout= config.layout)
+        case PlayerType.OPPONENT:
+            return Opponent(surface= config.surface, color= config.color, layout= config.layout)
+        case PlayerType.COMPUTER:
+            return Computer(surface= config.surface, color= config.color, layout= config.layout)
+        case _:
+            return Computer(surface= config.surface, color= config.color, layout= config.layout)
 

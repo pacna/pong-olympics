@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 
 from pygame import surface
+import pygame
 
 from players.types.player_type import PlayerType
 from shared.types.position import Position
@@ -10,5 +11,5 @@ from shared.types.position import Position
 class PlayerConfig:
     type: PlayerType
     color: tuple
-    position: Position
+    layout: pygame.Rect
     surface: surface.Surface

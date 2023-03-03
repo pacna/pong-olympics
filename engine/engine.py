@@ -1,12 +1,10 @@
 import pygame
 from components.score_board import draw_score_board
-from players.player import Player
-from players.player_factory import PlayerFactory
-from players.types.player_config import PlayerConfig
-from players.types.player_type import PlayerType
+from pieces import pieces
 from shared.constants import colors
 from engine.types.engine_config import EngineConfig
-from shared.types.position import Position
+from shared.types.size import Size
+from world import world
 
 class Engine:
 
@@ -15,29 +13,54 @@ class Engine:
         self.surface = pygame.display.set_mode(size = (self.config.width, self.config.height))
 
     def run(self) -> None:
-        pygame.display.set_caption(self.config.title)
-        self.surface.fill(color=colors.KORMA)
-        game_court_size: pygame.Rect = pygame.Rect(0, 150, self.config.width, self.config.height - 150)
-        pygame.draw.rect(surface = self.surface, color= colors.WHITE, rect= game_court_size, width = 5)
-
+        self._load()
         draw_score_board(game_surface = self.surface)
 
-        PlayerFactory(players=[
-            Player(config=PlayerConfig(type=PlayerType.SELF, color=colors.RED_DAMASK, position=Position(x = game_court_size.x + 5, y = game_court_size.y + 5), surface=self.surface)),
-            Player(config=PlayerConfig(type=PlayerType.COMPUTER, color=colors.FRUIT_SALAD, position=Position(x = 1270 - 5, y = game_court_size.y + 5), surface=self.surface))
-        ]).render()
+        self._run_game()
 
-        self.__run_game()
+    def _load(self) -> None:
+        pygame.display.set_caption(self.config.title)
+        self.surface.fill(color=colors.KORMA)
+        world.load_world(surface= self.surface, screen_size= Size(width= self.config.width, height= self.config.height))
 
-    def __run_game(self) -> None:
+    def _update(self) -> None:
+        ...
+
+    def _keypressed(self, key: int, is_keydown_hold: bool) -> None:
+        if is_keydown_hold:
+            pieces.player_1.update(key = key)
+            pieces.player_2.update(key = key)
+            
+
+    def _draw(self) -> None:
+        pieces.court.render()
+        pieces.player_1.render()
+        pieces.player_2.render()
+
+    def _exit(self) -> None:
+        pygame.quit()
+        quit() # to properly quit out of the program
+
+    def _run_game(self) -> None:
+        is_key_hold: bool = False
+        current_key: int = -1
         while True:
             for event in pygame.event.get():
-                match event.type:
+               match event.type:
                     case pygame.QUIT:
-                        self.exit()
-
-    def exit(self) -> None:
-        pygame.quit()
-        exit() # to properly quit out of the program
+                       self._exit()
+                    case pygame.KEYDOWN:
+                        is_key_hold = True
+                        current_key = event.key
+                        if event.key == pygame.K_ESCAPE:
+                            self._exit()
+                        break
+                    case pygame.KEYUP:
+                        is_key_hold = False
+                        current_key = event.key
+                        break
+            self._keypressed(key= current_key, is_keydown_hold= is_key_hold)
+            self._draw()
+            pygame.display.update()
 
 
