@@ -25,8 +25,6 @@ activate: ## activate venv
 venv: ## creating a new venv for the repo
  ##
 	bash venv.sh
-	echo "\n"
-	make activate
 
 .PHONY:help
 help: ## Show this help
