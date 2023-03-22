@@ -1,25 +1,36 @@
-run:
+## ----------------------------------------------------------------------
+## The purpose of this Makefile is to simplify common development tasks.
+## ----------------------------------------------------------------------
+##
+
+.PHONY:run
+run: ## run the app
+ ##
 	python main.py
 
-install:
+.PHONY:install
+install: ## install pip dependencies (do this after creating a venv)
+ ##
 	pip install -r requirements.txt 
 
-freeze:
-	pip freeze > requirements.txt
+.PHONY:activate
+activate: ## activate venv
+ ##
+	echo "Activating env"
+	. env/bin/activate
 
-venv:
+	which python
+
+.PHONY:venv
+venv: ## creating a new venv for the repo
+ ##
 	echo "Removing env"
 	rm -r env
-
-	sleep 1s
 
 	echo "Creating env"
 	python3 -m venv env
 
-	sleep 1s
-
-	echo "Activate env"
-# using . as alternative to "source"
-	. env/bin/activate
-
-	which python
+.PHONY:help
+help: ## Show this help
+##
+	@sed -ne '/@sed/!s/##//p' $(MAKEFILE_LIST)

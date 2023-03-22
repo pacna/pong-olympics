@@ -10,5 +10,6 @@ from shared.constants.player_type import PlayerType
 class PlayerConfig:
     type: PlayerType
     color: tuple
-    layout: pygame.Rect
+    layout: pygame.rect.Rect
+    court_layout: pygame.rect.Rect
     surface: surface.Surface

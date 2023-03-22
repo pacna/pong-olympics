@@ -1,14 +1,15 @@
 from dataclasses import dataclass
-
 from pygame import surface, rect
-
 from draw.draw import draw_ball
-
+from shared.constants import speed
 
 @dataclass
 class Ball:
     surface: surface.Surface
-    court_layout: rect.Rect
+    layout: rect.Rect
 
     def render(self) -> None:
-        draw_ball(surface= self.surface, court_layout= self.court_layout)
+        draw_ball(surface= self.surface, layout= self.layout)
+
+    def update(self) -> None:
+        self.layout = self.layout.move(-speed.BALL_SPEED, 0)
