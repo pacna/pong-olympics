@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from pygame import surface, rect
-from draw.draw import draw_ball
+from draw import draw_ball
 from shared.constants import speed
 
 @dataclass

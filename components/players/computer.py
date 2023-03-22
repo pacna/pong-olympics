@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from typing import Sequence
 import pygame
-from draw.draw import draw_paddle
+from draw import draw_paddle
 from shared.constants.player_type import PlayerType
 from shared.types.position import Position
 from shared.constants import speed, sizes

@@ -2,7 +2,7 @@ from dataclasses import dataclass
 
 from pygame import surface
 
-from draw.draw import draw_score_board
+from draw import draw_score_board
 from shared.types.size import Size
 
 

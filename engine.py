@@ -2,10 +2,10 @@ from typing import Sequence
 import pygame
 from factories.renderer_factory import RendererFactory
 from shared.configs.game_config import GameConfig
-from shared import entity
 from shared.constants import colors
 from shared.types.size import Size
-from world import world
+from world import load_world
+import entity
 
 class Engine:
     def __init__(self, config: GameConfig) -> None:
@@ -18,7 +18,7 @@ class Engine:
 
     def _load(self) -> None:
         pygame.display.set_caption(self.config.title)
-        world.load_world(surface= self.surface, screen_size= Size(width= self.config.width, height= self.config.height))
+        load_world(surface= self.surface, screen_size= Size(width= self.config.width, height= self.config.height))
 
     def _update(self) -> None:
         entity.ball.update()

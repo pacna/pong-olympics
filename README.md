@@ -1,4 +1,4 @@
-# Pygame Pong
+# Pong Olympics
 
 ## Ubuntu Prerequisites
 

@@ -1,6 +1,6 @@
 from dataclasses import dataclass, field
 from shared.interfaces.irenderer import IRenderer
-from shared import entity
+import entity
 
 @dataclass
 class RendererFactory:

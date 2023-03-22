@@ -1,5 +1,5 @@
 import pygame
-from engine.engine import Engine
+from engine import Engine
 from shared.configs.game_config import GameConfig
 
 

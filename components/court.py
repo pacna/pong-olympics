@@ -1,6 +1,6 @@
 from pygame import rect, surface
 from dataclasses import dataclass
-from draw.draw import draw_court
+from draw import draw_court
 
 
 @dataclass

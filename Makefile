@@ -24,11 +24,9 @@ activate: ## activate venv
 .PHONY:venv
 venv: ## creating a new venv for the repo
  ##
-	echo "Removing env"
-	rm -r env
-
-	echo "Creating env"
-	python3 -m venv env
+	bash venv.sh
+	echo "\n"
+	make activate
 
 .PHONY:help
 help: ## Show this help

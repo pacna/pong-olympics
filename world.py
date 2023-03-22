@@ -8,7 +8,7 @@ from components.score_board import ScoreBoard
 from shared.types.position import Position
 from shared.types.size import Size
 from shared.constants import sizes, colors
-from shared import entity
+import entity
 
 def load_world(surface: surface.Surface, screen_size: Size) -> None:
     _load_court(surface= surface, screen_size= screen_size)
