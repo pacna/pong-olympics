@@ -13,6 +13,11 @@ install: ## install pip dependencies (do this after creating a venv)
  ##
 	pip install -r requirements.txt 
 
+.PHONY:freeze
+freeze: ## create new/update requirements.txt file
+##
+	pip freeze > requirements.txt
+
 .PHONY:activate
 activate: ## activate venv
  ##

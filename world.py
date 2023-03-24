@@ -1,6 +1,9 @@
+from typing import Callable
 from pygame import surface, rect
 from components.ball import Ball
 from components.court import Court
+from factories.message_bus.bus import Bus
+from factories.message_bus.publisher import Publisher
 from factories.player_factory import create_player_factory
 from shared.configs.player_config import PlayerConfig
 from shared.constants.player_type import PlayerType
@@ -11,6 +14,7 @@ from shared.constants import sizes, colors
 import entity
 
 def load_world(surface: surface.Surface, screen_size: Size) -> None:
+    _load_msg_bus()
     _load_court(surface= surface, screen_size= screen_size)
     _load_score_board(surface= surface, screen_size= screen_size)
     _load_player(surface= surface, screen_size= screen_size)
@@ -42,8 +46,16 @@ def _load_player(surface: surface.Surface, screen_size: Size) -> None:
         court_layout=entity.court.layout))
     
 def _load_ball(surface: surface.Surface) -> None:
-    entity.ball = Ball(surface= surface, layout= rect.Rect(
-        entity.court.layout.left - sizes.BALL_RADIUS,
-        entity.court.layout.top - sizes.BALL_RADIUS,
-        entity.court.layout.width  - sizes.BALL_RADIUS,
-        entity.court.layout.height - sizes.BALL_RADIUS))
+    create_circle_point: Callable[[int], float] = lambda ltwh: ltwh - sizes.BALL_RADIUS
+    entity.ball = Ball(
+        surface= surface, 
+        layout= rect.Rect(
+                create_circle_point(entity.court.layout.left),
+                create_circle_point(entity.court.layout.top),
+                create_circle_point(entity.court.layout.width),
+                create_circle_point(entity.court.layout.height)), 
+        court_layout= entity.court.layout)
+    
+def _load_msg_bus() -> None:
+    entity.message_bus = Bus()
+    entity.publisher = Publisher(bus = entity.message_bus)
