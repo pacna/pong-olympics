@@ -4,7 +4,6 @@ from draw import draw_ball
 from shared.constants import speed, sizes
 import entity
 from shared.constants.msg_key import MsgKey
-from shared.constants.player_type import PlayerType
 
 @dataclass
 class Ball:
@@ -21,10 +20,10 @@ class Ball:
         # layout uses standard coordinates so (0,0) starts at the center
         if self.layout.x < -court_limit or self.layout.x > court_limit:
             if self.layout.x < -court_limit:
-                entity.publisher.send(key=MsgKey.SCORE, value=entity.player_1.get_type())
+                entity.msg_bus.send(key=MsgKey.SCORE, value=entity.player_1.get_type())
             
             if self.layout.x > court_limit:
-                entity.publisher.send(key=MsgKey.SCORE, value=entity.player_2.get_type())
+                entity.msg_bus.send(key=MsgKey.SCORE, value=entity.player_2.get_type())
 
             self.layout = self._reset_layout()
 

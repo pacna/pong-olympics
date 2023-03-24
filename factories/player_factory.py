@@ -1,5 +1,5 @@
 from components.players.computer import Computer
-from shared.interfaces.iplayer import IPlayer
+from interfaces.iplayer import IPlayer
 from components.players.opponent import Opponent
 from components.players.self import Self
 from shared.configs.player_config import PlayerConfig

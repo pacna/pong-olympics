@@ -1,6 +1,5 @@
 from typing import Sequence
 import pygame
-from factories.message_bus.handler_factory import HandlerFactory
 from factories.renderer_factory import RendererFactory
 from shared.configs.game_config import GameConfig
 from shared.constants import colors
@@ -23,7 +22,7 @@ class Engine:
 
     def _update(self) -> None:
         entity.ball.update()
-        HandlerFactory(bus= entity.message_bus).run()
+        entity.msg_bus.run()
 
     def _keypressed(self, keys: Sequence[bool], is_keydown_hold: bool) -> None:
         if is_keydown_hold:

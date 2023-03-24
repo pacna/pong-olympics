@@ -1,5 +1,5 @@
 from dataclasses import dataclass, field
-from shared.interfaces.irenderer import IRenderer
+from interfaces.irenderer import IRenderer
 import entity
 
 @dataclass

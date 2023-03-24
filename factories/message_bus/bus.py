@@ -1,10 +1,6 @@
 from collections import deque
 from dataclasses import dataclass, field
-from typing import TypeVar
-
 from shared.types.key_value_pair import KeyValuePair
-
-T = TypeVar("T")
 
 @dataclass
 class Bus:
