@@ -7,12 +7,12 @@ python = env/bin/python
 
 .PHONY:run
 run: ## run the app
- ##
+##
 	$(python) main.py
 
 .PHONY:install
 install: ## install pip dependencies (do this after creating a venv)
- ##
+##
 	$(python) -m pip install -r requirements.txt 
 
 .PHONY:freeze
@@ -22,7 +22,7 @@ freeze: ## create new/update requirements.txt file
 
 .PHONY:activate
 activate: ## activate venv
- ##
+##
 	echo "Activating env"
 	. env/bin/activate
 
@@ -30,10 +30,15 @@ activate: ## activate venv
 
 .PHONY:venv
 venv: ## creating a new venv for the repo
- ##
+##
 	bash venv.sh; \
 	make install; \
 	make activate
+
+.PHONY:test
+test: ## run tests
+##
+	pytest
 
 .PHONY:help
 help: ## Show this help

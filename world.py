@@ -9,7 +9,8 @@ from shared.constants.player_type import PlayerType
 from components.score_board import ScoreBoard
 from shared.types.position import Position
 from shared.types.size import Size
-from shared.constants import sizes, colors
+from shared.constants import sizes, colors, speed
+import random
 import entity
 
 def load_world(surface: surface.Surface, screen_size: Size) -> None:
@@ -43,12 +44,14 @@ def _load_player(surface: surface.Surface, screen_size: Size) -> None:
         surface= surface, 
         color=colors.FRUIT_SALAD,
         layout=rect.Rect(player_2_pos.x, player_2_pos.y, sizes.PLAYER_WIDTH, sizes.PLAYER_HEIGHT),
-        type= PlayerType.OPPONENT,
+        type= PlayerType.COMPUTER,
         court_layout=entity.court.layout))
     
 def _load_ball(surface: surface.Surface) -> None:
     create_circle_point: Callable[[int], float] = lambda xy: xy - (sizes.GAME_COURT_BORDER_WIDTH * 2)
     ball_pos: Position = Position(x = create_circle_point(entity.court.layout.centerx), y = entity.court.layout.centery - create_circle_point(sizes.GAME_COURT_BORDER_WIDTH * 2))
+
+    random_init_direction: int = random.randint(-1, 2)
 
     entity.ball = Ball(
         surface= surface, 
@@ -58,6 +61,8 @@ def _load_ball(surface: surface.Surface) -> None:
             sizes.BALL_HEIGHT_WIDTH,
             sizes.BALL_HEIGHT_WIDTH
         ),
+        x_velocity= speed.BALL_SPEED if random_init_direction > 0 else -speed.BALL_SPEED,
+        y_velocity= speed.BALL_SPEED if random_init_direction > 0 else -speed.BALL_SPEED,
         court_layout= entity.court.layout)
     
 def _load_msg_bus() -> None:

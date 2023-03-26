@@ -1,0 +1,16 @@
+from dataclasses import dataclass, field
+from components.players.base_player import BasePlayer
+from interfaces.ikeyboard import IKeyBoard
+from shared.constants.player_type import PlayerType
+from keyboard.empty_keys import EmptyKeys
+
+@dataclass
+class MockPlayer(BasePlayer):
+    type: PlayerType = PlayerType.SELF
+    input: IKeyBoard = field(default_factory= EmptyKeys)
+
+    def get_type(self) -> PlayerType:
+        return self.type
+    
+    def update(self) -> None:
+        ...

@@ -15,7 +15,13 @@ class ScoreBoard:
     team_two_score: int = 0
 
     def render(self) -> None:
-        draw_score_board(game_surface= self.surface, screen_size= self.screen_size, team_one_score= self.team_one_score, team_two_score= self.team_two_score)
+        draw_score_board(
+            game_surface= self.surface, 
+            screen_size= self.screen_size, 
+            player_one_name= self.player_1_name, 
+            team_one_score= self.team_one_score, 
+            player_two_name= self.player_2_name,
+            team_two_score= self.team_two_score)
 
     def handle_msg(self, msg: KeyValuePair[str]) -> None:
         if msg.key != MsgKey.SCORE:

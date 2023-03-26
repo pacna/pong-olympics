@@ -10,8 +10,8 @@ class Ball:
     surface: surface.Surface
     layout: rect.Rect
     court_layout: rect.Rect
-    x_velocity: float = speed.BALL_SPEED
-    y_velocity: float = speed.BALL_SPEED
+    x_velocity: float
+    y_velocity: float
 
     def render(self) -> None:
         draw_ball(surface= self.surface, layout= self.layout)

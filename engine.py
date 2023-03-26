@@ -3,6 +3,7 @@ from collision_facade import CollisionFacade
 from factories.renderer_factory import RendererFactory
 from shared.configs.game_config import GameConfig
 from shared.constants import colors
+from shared.constants.player_type import PlayerType
 from shared.types.size import Size
 from world import load_world
 import pygame
@@ -27,10 +28,20 @@ class Engine:
         entity.msg_bus.run()
 
     def _keypressed(self, keys: Sequence[bool], is_keydown_hold: bool) -> None:
+        player1_type = entity.player_1.get_type()
+        player2_type = entity.player_2.get_type()
+
         if is_keydown_hold:
-            entity.player_1.update(keys = keys)
-            entity.player_2.update(keys = keys)
-            
+            if player1_type is not PlayerType.COMPUTER:
+                entity.player_1.update(keys=keys)
+            if player2_type is not PlayerType.COMPUTER:
+                entity.player_2.update(keys=keys)
+
+        if player1_type is PlayerType.COMPUTER:
+            entity.player_1.update(keys=keys)
+        if player2_type is PlayerType.COMPUTER:
+            entity.player_2.update(keys=keys)
+
 
     def _draw(self) -> None:
         RendererFactory().render()
