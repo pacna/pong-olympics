@@ -1,10 +1,11 @@
 from typing import Sequence
-import pygame
+from collision_facade import CollisionFacade
 from factories.renderer_factory import RendererFactory
 from shared.configs.game_config import GameConfig
 from shared.constants import colors
 from shared.types.size import Size
 from world import load_world
+import pygame
 import entity
 
 class Engine:
@@ -22,6 +23,7 @@ class Engine:
 
     def _update(self) -> None:
         entity.ball.update()
+        CollisionFacade().collide()
         entity.msg_bus.run()
 
     def _keypressed(self, keys: Sequence[bool], is_keydown_hold: bool) -> None:

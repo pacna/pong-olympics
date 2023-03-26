@@ -1,6 +1,5 @@
 from typing import Protocol, Sequence
 
-
 class IKeyBoard(Protocol):
     def is_up_pressed(self, keys: Sequence[bool]) -> bool:
         ...

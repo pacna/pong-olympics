@@ -1,8 +1,6 @@
 from dataclasses import dataclass
 from typing import Sequence
-
 import pygame
-
 
 @dataclass
 class ArrowKeys:

@@ -2,7 +2,6 @@ from pygame import rect, surface
 from dataclasses import dataclass
 from draw import draw_court
 
-
 @dataclass
 class Court:
     surface: surface.Surface

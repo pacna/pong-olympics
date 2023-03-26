@@ -1,7 +1,6 @@
 from dataclasses import dataclass
 from typing import Sequence
 
-
 @dataclass
 class EmptyKeys:
     def is_up_pressed(self, keys: Sequence[bool]) -> bool:

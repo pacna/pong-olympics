@@ -1,7 +1,6 @@
-import pygame
 from engine import Engine
 from shared.configs.game_config import GameConfig
-
+import pygame
 
 def main() -> None:
     pygame.init()
