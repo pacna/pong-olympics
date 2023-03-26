@@ -1,5 +1,5 @@
 from dataclasses import dataclass, field
-from typing import Generic, TypeVar
+from typing import Generic, Sequence, TypeVar
 
 from shared.types.key_value_pair import KeyValuePair
 from .bus import Bus
@@ -10,8 +10,8 @@ T = TypeVar("T")
 
 @dataclass
 class MessageBusFactory(Generic[T]):
-    bus: Bus
-    handlers: list[IHandler] = field(default_factory= lambda : [
+    bus: Bus = field(default_factory= Bus)
+    handlers: Sequence[IHandler] = field(default_factory= lambda : [
         entity.score_board
     ])
 

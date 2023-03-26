@@ -19,4 +19,4 @@ def draw_score_board(game_surface: surface.Surface, screen_size: Size, team_one_
     game_surface.blit(source = player_2_score_text, dest = (center_x + sizes.SCORE_FINAL_SIZE, 40))
 
 def draw_ball(surface: surface.Surface, layout: rect.Rect) -> None:
-    draw.circle(surface= surface, color= colors.WHITE, center= (layout.centerx, layout.centery), radius = sizes.BALL_RADIUS)
+    draw.rect(surface= surface, color= colors.WHITE, rect= layout)

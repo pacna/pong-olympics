@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
 from typing import Sequence
-from keyboard.arrow_keys import ArrowKeys
 from interfaces.ikeyboard import IKeyBoard
+from keyboard.wasd_keys import WASDKeys
 from shared.constants.player_type import PlayerType
 from shared.types.position import Position
 from shared.constants import speed, sizes
@@ -10,7 +10,7 @@ from .base_player import BasePlayer
 @dataclass
 class Self(BasePlayer):
     type: PlayerType = PlayerType.SELF
-    input: IKeyBoard = field(default_factory= ArrowKeys)
+    input: IKeyBoard = field(default_factory= WASDKeys)
 
     def get_type(self) -> PlayerType:
         return self.type
@@ -25,7 +25,6 @@ class Self(BasePlayer):
         court_upper_wall: float = self.court_layout.y + sizes.GAME_COURT_BORDER_WIDTH
         court_bottom_wall: float = self.court_layout.height + self.court_layout.y - sizes.GAME_COURT_BORDER_WIDTH
 
-        # layout uses standard coordinates so (0,0) starts at the center
         self.layout = self.layout.move(pos.x, pos.y)
         self.layout.top = max(court_upper_wall, self.layout.top)
         self.layout.bottom = min(court_bottom_wall, self.layout.bottom)

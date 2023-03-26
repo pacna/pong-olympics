@@ -2,7 +2,6 @@ from typing import Callable
 from pygame import surface, rect
 from components.ball import Ball
 from components.court import Court
-from factories.message_bus.bus import Bus
 from factories.message_bus.message_bus_factory import MessageBusFactory
 from factories.player_factory import create_player_factory
 from shared.configs.player_config import PlayerConfig
@@ -46,15 +45,20 @@ def _load_player(surface: surface.Surface, screen_size: Size) -> None:
         court_layout=entity.court.layout))
     
 def _load_ball(surface: surface.Surface) -> None:
-    create_circle_point: Callable[[int], float] = lambda ltwh: ltwh - sizes.BALL_RADIUS
+    create_circle_point: Callable[[int], float] = lambda xy: xy - (sizes.GAME_COURT_BORDER_WIDTH * 2)
+    ball_pos: Position = Position(x = create_circle_point(entity.court.layout.centerx), y = entity.court.layout.centery - create_circle_point(sizes.GAME_COURT_BORDER_WIDTH * 2))
+
     entity.ball = Ball(
         surface= surface, 
         layout= rect.Rect(
-                create_circle_point(entity.court.layout.left),
-                create_circle_point(entity.court.layout.top),
-                create_circle_point(entity.court.layout.width),
-                create_circle_point(entity.court.layout.height)), 
-        court_layout= entity.court.layout)
+            ball_pos.x,
+            ball_pos.y,
+            sizes.BALL_HEIGHT_WIDTH,
+            sizes.BALL_HEIGHT_WIDTH
+        ),
+        court_layout= entity.court.layout,
+        player_1_layout= entity.player_1.get_layout(),
+        player_2_layout= entity.player_2.get_layout())
     
 def _load_msg_bus() -> None:
-    entity.msg_bus = MessageBusFactory(bus = Bus())
+    entity.msg_bus = MessageBusFactory()

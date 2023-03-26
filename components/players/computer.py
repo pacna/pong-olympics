@@ -25,7 +25,6 @@ class Computer(BasePlayer):
         court_upper_wall: float = self.court_layout.y + sizes.GAME_COURT_BORDER_WIDTH
         court_bottom_wall: float = self.court_layout.height + self.court_layout.y - sizes.GAME_COURT_BORDER_WIDTH
 
-        # layout uses standard coordinates so (0,0) starts at the center
         self.layout = self.layout.move(pos.x, pos.y)
         self.layout.top = max(court_upper_wall, self.layout.top)
         self.layout.bottom = min(court_bottom_wall, self.layout.bottom)
