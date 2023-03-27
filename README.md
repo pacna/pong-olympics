@@ -1,38 +1,46 @@
 # Pong Olympics
 
-Pong Olympics is my own spin off of [Video Olympics](https://en.wikipedia.org/wiki/Video_Olympics) on the Atari 2600, written in python.
+Pong Olympics is a Python-based spinoff of [Video Olympics](https://en.wikipedia.org/wiki/Video_Olympics) on the Atari 2600, with unique features and gameplay.
 
 ![pong-olympics](./docs/pong-olympics.png)
 
-**Note:** This project is still a work in progress and currently only has one level.
-
 ## Ubuntu Prerequisites
 
-1. [Python](https://www.python.org/downloads/) (python 3.10)
-2. Make
+Before you can run Pong Olympics, you'll need to make sure you have the following installed on your system:
 
-## How to install dependencies
+1. [Python](https://www.python.org/downloads/) (python 3.10)
+2. [Make](https://www.gnu.org/software/make/)
+
+## Installation
+
+To install Pong Olympics and its dependencies, run the following command:
 
 ```bash
 $ make install
 ```
 
-## Troubleshoot
+## Running the game
 
-If you experience this error
+To start playing Pong Olympics, run the following command:
 
 ```bash
-ImportError: No module named 'Tkinter'
+$ make run
 ```
 
-Install the following
+## Running Tests
+
+To run the test suite for Pong Olympics, use the following command:
+
+```bash
+$ make test
+```
+
+## Troubleshooting
+
+If you encounter an error message about the Tkinter module not being found, you may need to install it. You can do this by running the following command:
 
 ```bash
 $ apt-get install python3-tk
 ```
 
-## How to run game
-
-```bash
-$ make run
-```
+**Note:** Pong Olympics is still a work in progress and currently only has one level.

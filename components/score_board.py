@@ -23,7 +23,7 @@ class ScoreBoard:
             player_two_name= self.player_2_name,
             team_two_score= self.team_two_score)
 
-    def handle_msg(self, msg: KeyValuePair[str]) -> None:
+    def handle_msg(self, msg: KeyValuePair[str, str]) -> None:
         if msg.key != MsgKey.SCORE:
             return
         

@@ -15,7 +15,7 @@ class MessageBusFactory(Generic[T]):
     ])
 
     def send(self, key: str, value: T) -> None:
-        self.bus.add(KeyValuePair(key = key, value= value))
+        self.bus.add(KeyValuePair[str, T](key = key, value= value))
 
     def run(self) -> None:
         if self.bus.is_empty():

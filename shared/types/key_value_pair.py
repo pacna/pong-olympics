@@ -1,9 +1,10 @@
 from dataclasses import dataclass
 from typing import Generic, TypeVar
 
-T = TypeVar("T")
+K = TypeVar("K")
+V = TypeVar("V")
 
 @dataclass
-class KeyValuePair(Generic[T]):
-    key: str
-    value: T
+class KeyValuePair(Generic[K, V]):
+    key: K
+    value: V

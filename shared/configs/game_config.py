@@ -3,5 +3,5 @@ from dataclasses import dataclass
 @dataclass
 class GameConfig:
     title: str
-    height: int
-    width: int
+    height: float
+    width: float
