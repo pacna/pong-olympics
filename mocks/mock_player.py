@@ -2,7 +2,7 @@ from dataclasses import dataclass, field
 from components.players.base_player import BasePlayer
 from shared.interfaces.ikeyboard import IKeyBoard
 from shared.constants.player_type import PlayerType
-from keyboard.empty_keys import EmptyKeys
+from shared.keyboard.empty_keys import EmptyKeys
 
 @dataclass
 class MockPlayer(BasePlayer):

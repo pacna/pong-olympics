@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
 from typing import Sequence
 from shared.interfaces.ikeyboard import IKeyBoard
-from keyboard.wasd_keys import WASDKeys
+from shared.keyboard.wasd_keys import WASDKeys
 from shared.constants.player_type import PlayerType
 from shared.types.position import Position
 from shared.constants import speed, sizes

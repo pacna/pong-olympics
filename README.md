@@ -1,5 +1,7 @@
 # Pong Olympics
 
+<img alt="Test CI" src="https://github.com/pacna/pong-olympics/workflows/Test%20CI/badge.svg" />
+
 Pong Olympics is a Python-based spinoff of [Video Olympics](https://en.wikipedia.org/wiki/Video_Olympics) on the Atari 2600, with unique features and gameplay, powered by the Pygame game engine.
 
 ![pong-olympics](./docs/pong-olympics.png)

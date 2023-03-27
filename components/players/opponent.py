@@ -1,6 +1,6 @@
 from dataclasses import dataclass, field
 from typing import Sequence
-from keyboard.arrow_keys import ArrowKeys
+from shared.keyboard.arrow_keys import ArrowKeys
 from shared.interfaces.ikeyboard import IKeyBoard
 from shared.constants.player_type import PlayerType
 from shared.types.position import Position
