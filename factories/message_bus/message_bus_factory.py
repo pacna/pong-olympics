@@ -1,9 +1,9 @@
 from dataclasses import dataclass, field
 from typing import Generic, Sequence, TypeVar
 from shared.types.key_value_pair import KeyValuePair
-from interfaces.ihandler import IHandler
+from shared.interfaces.ihandler import IHandler
 from .bus import Bus
-import entity
+import core.entity as entity
 
 T = TypeVar("T")
 

@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from shared.constants.msg_key import MsgKey
 from shared.constants import sizes,speed
-import entity
+import core.entity as entity
 
 @dataclass
 class CollisionFacade:

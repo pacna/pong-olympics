@@ -2,7 +2,6 @@ from dataclasses import dataclass
 from shared.constants.player_type import PlayerType
 from shared.types.size import Size
 
-
 @dataclass
 class CustomYAMLConfig:
     window: Size

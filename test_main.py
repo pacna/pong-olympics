@@ -2,7 +2,7 @@ from pygame import surface, rect
 from mocks.mock_player import MockPlayer
 from shared.constants import colors
 from shared.constants.player_type import PlayerType
-import entity
+import core.entity as entity
 
 entity.player_1 = MockPlayer(
     name= "Faker",

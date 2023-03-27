@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from typing import Callable
 from pygame import surface, rect
-from draw import draw_ball
+from shared.draw import draw_ball
 from shared.constants import speed, sizes
 from shared.types.position import Position
 

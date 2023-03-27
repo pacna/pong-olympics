@@ -2,7 +2,6 @@ from dataclasses import dataclass, field
 from shared.constants.player_type import PlayerType
 from shared.types.size import Size
 
-
 @dataclass
 class DefaultYAMLConfig:
     window: Size = field(default_factory= lambda: Size(width= 1280, height= 720))

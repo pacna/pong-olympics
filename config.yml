@@ -3,4 +3,4 @@ window:
     height: 720
 player:
     name: "Boss"
-    type: 2
+    type: 1

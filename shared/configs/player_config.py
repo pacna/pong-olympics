@@ -1,10 +1,7 @@
 from dataclasses import dataclass
-
 from pygame import surface
-import pygame
-
 from shared.constants.player_type import PlayerType
-
+import pygame
 
 @dataclass
 class PlayerConfig:

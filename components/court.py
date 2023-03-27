@@ -1,6 +1,6 @@
 from pygame import rect, surface
 from dataclasses import dataclass
-from draw import draw_court
+from shared.draw import draw_court
 
 @dataclass
 class Court:

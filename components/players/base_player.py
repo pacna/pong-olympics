@@ -1,6 +1,6 @@
 from pygame import surface, rect
 from dataclasses import dataclass
-from draw import draw_paddle
+from shared.draw import draw_paddle
 
 @dataclass
 class BasePlayer():

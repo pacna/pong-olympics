@@ -1,20 +1,20 @@
 from typing import Sequence
 from dataclasses import dataclass, field
-from collision_facade import CollisionFacade
+from shared.collision_facade import CollisionFacade
 from factories.renderer_factory import RendererFactory
 from shared.configs.game_config import GameConfig
 from shared.constants import colors
 from shared.constants.player_type import PlayerType
 from shared.types.size import Size
-from world import load_world
-from config import config_yaml
+from core.config_options import options
+from .world import load_world
+import core.entity as entity
 import pygame
-import entity
 
 @dataclass
 class Engine:
-    config: GameConfig = field(default_factory= lambda: GameConfig(title= "Pong Olympics", height= config_yaml.get_window().height, width= config_yaml.get_window().width))
-    surface: pygame.surface.Surface = pygame.display.set_mode(size = (config_yaml.get_window().width, config_yaml.get_window().height))
+    config: GameConfig = field(default_factory= lambda: GameConfig(title= "Pong Olympics", height= options.get_window().height, width= options.get_window().width))
+    surface: pygame.surface.Surface = pygame.display.set_mode(size = (options.get_window().width, options.get_window().height))
 
     def run(self) -> None:
         self._load()
@@ -22,7 +22,7 @@ class Engine:
 
     def _load(self) -> None:
         pygame.display.set_caption(self.config.title)
-        load_world(surface= self.surface, screen_size= Size(width= self.config.width, height= self.config.height), config= config_yaml)
+        load_world(surface= self.surface, screen_size= Size(width= self.config.width, height= self.config.height), options= options)
 
     def _update(self) -> None:
         entity.ball.update()

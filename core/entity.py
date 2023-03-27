@@ -1,7 +1,7 @@
 from components.ball import Ball
 from components.court import Court
 from factories.message_bus.message_bus_factory import MessageBusFactory
-from interfaces.iplayer import IPlayer
+from shared.interfaces.iplayer import IPlayer
 from components.score_board import ScoreBoard
 
 

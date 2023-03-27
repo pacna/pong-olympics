@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from pygame import surface
-from draw import draw_score_board
+from shared.draw import draw_score_board
 from shared.constants.msg_key import MsgKey
 from shared.types.key_value_pair import KeyValuePair
 from shared.types.size import Size

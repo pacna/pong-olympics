@@ -1,4 +1,4 @@
-from engine import Engine
+from core.engine import Engine
 import pygame
 
 def main() -> None:

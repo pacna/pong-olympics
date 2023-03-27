@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
 from typing import Sequence
-from interfaces.irenderer import IRenderer
-import entity
+from shared.interfaces.irenderer import IRenderer
+import core.entity as entity
 
 @dataclass
 class RendererFactory:

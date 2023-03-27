@@ -1,10 +1,9 @@
-from interfaces.iyamlconfig import IYAMLConfig
-from shared.configs.custom_yaml_config import CustomYAMLConfig
-from shared.configs.default_yaml_config import DefaultYAMLConfig
+from shared.interfaces.iyamlconfig import IYAMLConfig
 from shared.constants.player_type import PlayerType
 from shared.types.size import Size
+from shared.configs.custom_yaml_config import CustomYAMLConfig
+from shared.configs.default_yaml_config import DefaultYAMLConfig
 import yaml
-
 
 def get_config() -> IYAMLConfig:
     # ALL FIELDS ARE REQUIRED for it to be use in the game
@@ -18,4 +17,4 @@ def get_config() -> IYAMLConfig:
     except:
         return DefaultYAMLConfig()
 
-config_yaml: IYAMLConfig = get_config()
+options: IYAMLConfig = get_config()
