@@ -29,12 +29,7 @@ class CollisionFacade:
             entity.ball.y_velocity = entity.ball.reset_velocity(entity.ball.y_velocity) 
 
         # players collision logic
-        if entity.ball.layout.colliderect(entity.player_1.get_layout()):
-            entity.ball.y_velocity *= -speed.VELOCITY_MULTIPLIER
-            entity.ball.x_velocity = -entity.ball.x_velocity
-            entity.ball.layout = entity.ball.layout.move(entity.ball.x_velocity, entity.ball.y_velocity)
-
-        if entity.ball.layout.colliderect(entity.player_2.get_layout()):
+        if entity.ball.layout.colliderect(entity.player_1.get_layout()) or entity.ball.layout.colliderect(entity.player_2.get_layout()):
             entity.ball.y_velocity *= -speed.VELOCITY_MULTIPLIER
             entity.ball.x_velocity = -entity.ball.x_velocity
             entity.ball.layout = entity.ball.layout.move(entity.ball.x_velocity, entity.ball.y_velocity)

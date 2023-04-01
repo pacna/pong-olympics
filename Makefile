@@ -32,8 +32,7 @@ activate: ## activate venv
 venv: ## creating a new venv for the repo
 ##
 	bash venv.sh; \
-	make install; \
-	make activate
+	make install activate
 
 .PHONY:test
 test: ## run tests
