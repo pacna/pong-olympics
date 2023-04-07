@@ -37,7 +37,7 @@ venv: ## creating a new venv for the repo
 .PHONY:test
 test: ## run tests
 ##
-	pytest
+	${python} -m pytest
 
 .PHONY:help
 help: ## Show this help
