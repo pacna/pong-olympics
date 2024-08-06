@@ -1,3 +1,4 @@
+import asyncio
 from typing import Sequence
 from dataclasses import dataclass, field
 from shared.collision_facade import CollisionFacade
@@ -16,9 +17,9 @@ class Engine:
     config: GameConfig = field(default_factory= lambda: GameConfig(title= "Pong Olympics", height= options.get_window().height, width= options.get_window().width))
     surface: pygame.surface.Surface = pygame.display.set_mode(size = (options.get_window().width, options.get_window().height))
 
-    def run(self) -> None:
+    async def run(self) -> None:
         self._load()
-        self._run_game()
+        await self._run_game()
 
     def _load(self) -> None:
         pygame.display.set_caption(self.config.title)
@@ -52,7 +53,7 @@ class Engine:
         pygame.quit()
         quit() # to properly quit out of the program
 
-    def _run_game(self) -> None:
+    async def _run_game(self) -> None:
         clock: pygame.time.Clock = pygame.time.Clock()
         is_key_hold: bool = False
         while True:
@@ -74,5 +75,6 @@ class Engine:
             self._draw()
             pygame.display.update()
             clock.tick(60) # 60 FPS
+            await asyncio.sleep(0) # Note: Needs to be placed before pygame.display.update() so that it can render properly on the web
 
 

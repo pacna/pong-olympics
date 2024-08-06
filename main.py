@@ -1,12 +1,13 @@
+import asyncio
 from core.engine import Engine
 import pygame
 
-def main() -> None:
+async def main() -> None:
     pygame.init()
     pygame.font.init()
     engine: Engine = Engine()
-    engine.run()
+    await engine.run()
 
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())

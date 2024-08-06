@@ -4,6 +4,7 @@ iniconfig==2.0.0
 packaging==23.0
 pluggy==1.0.0
 pygame==2.1.2
+pygbag==0.9.1
 pytest==7.2.2
 PyYAML==6.0
 StrEnum==0.4.10
