@@ -1,0 +1,10 @@
+{
+    "window": {
+        "width": 1280,
+        "height": 720
+    },
+    "player": {
+        "name": "Boss",
+        "type": 1
+    }
+}

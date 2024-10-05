@@ -4,7 +4,7 @@ from shared.constants.player_type import PlayerType
 from shared.types.size import Size
 
 
-class IYAMLConfig(Protocol):
+class IGameConfig(Protocol):
     def get_window(self) -> Size:
         ...
     

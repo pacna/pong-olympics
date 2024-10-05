@@ -9,12 +9,12 @@ from shared.constants.player_type import PlayerType
 from components.score_board import ScoreBoard
 from shared.types.position import Position
 from shared.types.size import Size
-from shared.interfaces.iyamlconfig import IYAMLConfig
+from shared.interfaces.igameconfig import IGameConfig
 from shared.constants import sizes, colors, speed
 import core.entity as entity
 import random
 
-def load_world(surface: surface.Surface, screen_size: Size, options: IYAMLConfig) -> None:
+def load_world(surface: surface.Surface, screen_size: Size, options: IGameConfig) -> None:
     _load_court(surface= surface, screen_size= screen_size)
     _load_player(surface= surface, screen_size= screen_size, options= options)
     _load_score_board(surface= surface, screen_size= screen_size)
@@ -27,7 +27,7 @@ def _load_court(surface: surface.Surface, screen_size: Size) -> None:
 def _load_score_board(surface: surface.Surface, screen_size: Size) -> None:
     entity.score_board = ScoreBoard(surface= surface, screen_size= screen_size, player_1_name=entity.player_1.get_name(), player_2_name= entity.player_2.get_name())
 
-def _load_player(surface: surface.Surface, screen_size: Size, options: IYAMLConfig) -> None:
+def _load_player(surface: surface.Surface, screen_size: Size, options: IGameConfig) -> None:
     player_1_pos = Position(x = entity.court.layout.x + sizes.GAME_COURT_BORDER_WIDTH, y = entity.court.layout.centery - ((sizes.PLAYER_WIDTH + sizes.GAME_COURT_BORDER_WIDTH) * 2))
     player_2_pos = Position(x = screen_size.width - (sizes.PLAYER_WIDTH + sizes.GAME_COURT_BORDER_WIDTH), y = entity.court.layout.centery - ((sizes.PLAYER_WIDTH + sizes.GAME_COURT_BORDER_WIDTH) * 2))
 

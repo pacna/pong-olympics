@@ -3,7 +3,7 @@ from shared.constants.player_type import PlayerType
 from shared.types.size import Size
 
 @dataclass
-class DefaultYAMLConfig:
+class DefaultGameConfig:
     window: Size = field(default_factory= lambda: Size(width= 1280, height= 720))
     player_name: str = "Player 1"
     player_type: PlayerType = PlayerType.SELF
